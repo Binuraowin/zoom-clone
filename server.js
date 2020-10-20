@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
+
+
 const server = require('http').Server(app);
+// var io = require('socket.io').listen(server);
+const io = require('socket.io')(server)
 const {v4: uuidv4} = require('uuid');
 app.set('view engine','ejs');
 app.use(express.static('public'));
@@ -12,7 +16,17 @@ app.get('/:room',(req,res)=>{
     res.render('room',{roomId:req.params.room })
 }) 
 
-server.listen(3030);
+
 app.get('/',(req,res) =>{
     res.render('room')
 })
+
+io.on('connection', socket =>{
+    socket.on('join-room',(roomId) =>{
+        socket.join(roomId); 
+        socket.to(roomId).broadcast.emit('uesr-connected');
+        console.log("joined-room")
+    })
+
+})
+server.listen(3030);
