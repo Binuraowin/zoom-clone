@@ -128,3 +128,12 @@ function addVideoStream(video, stream) {
   })
   videoGrid.append(video)
 }
+
+let text = $('input')
+$('html').keydown((e) =>{
+    if(e.which == 13 && text.val().length !==0){
+        console.log(text.val())
+        socket.emit('message', text.val());
+        text.val('')
+    }
+})
