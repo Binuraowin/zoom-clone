@@ -35,3 +35,63 @@ video{
     justify-content: center;
     align-items: center;
 }
+
+.main_controls{
+    display: flex;
+    background-color: #1C1E20;
+    color: #d2d2d2;
+    padding: 5px;
+    justify-content: space-between;
+}
+
+.main_controls_block{
+    display: flex;
+}
+
+.main_controls_button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+}
+.main_controls_button i{
+    font-size: 24px;
+}
+
+.leave_meeting{
+    color: #EB534B;
+}
+.main_controls_button:hover{
+    background-color: #343434;
+    border-radius: 5px;
+}
+
+.main_right{
+    display: flex;
+    flex-direction: column;
+    background-color: #242324;
+    border-left: 1px solid #3D3D42;
+}
+
+.main_header{
+    color: #F5F5F5;
+    text-align: center;
+}
+
+.main_chat_window{
+    flex-grow: 1;
+}
+.main_message_container{
+    padding: 22px 12px;
+    display: flex;
+}
+
+.main_message_container input{
+    flex-grow: 1;
+    background-color: transparent;
+    border: none;
+    color: #F5F5F5;
+}
